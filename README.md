@@ -5,8 +5,8 @@
 GitHub Profile Viewer is an application that lets you find any user by their github profile username. You can see public informations such as their follower count or repositories or much more...
 
 Notes:
-- This was my first time working with APIs. 
-- Credit to AI as well for designing the display.
+- This was my first time working with APIs.
+- Credit to AI as well for the design.
 
 ## 🛠️ Technologies
 
