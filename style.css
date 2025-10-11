@@ -1,15 +1,16 @@
 * {
   padding: 0;
   margin: 0;
-  font-family: Inter;
+  font-family: "Inter";
 }
 
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
-  background-color: rgb(212, 212, 212);
+  min-height: 100vh;
+  background: linear-gradient(135deg, white, rgb(174, 174, 174), white);
+  background-repeat: no-repeat;
 }
 
 .container {
@@ -17,24 +18,33 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  padding: 1rem;
 }
 
-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+h1 {
+  font-size: 2rem;
+  letter-spacing: -1px;
 }
 
 input {
   outline: none;
-  padding: 0.4rem 0.8rem;
-  border-radius: 4x;
+  padding: 0.5rem;
+  width: 300px;
   border: 1px solid black;
+  border-radius: 2px;
+  background: linear-gradient(90deg, white, rgb(213, 213, 213), white);
 }
 
 button {
   cursor: pointer;
   padding: 0.4rem 0.8rem;
+  border: 1px solid black;
+  border-radius: 2px;
+  transition: all 0.1s ease-in-out;
+}
+
+button:hover{
+  background-color: rgb(196, 196, 198);
 }
 
 .hide {
