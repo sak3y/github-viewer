@@ -14,32 +14,32 @@
     <link href="style.css" rel="stylesheet" />
     <script defer src="index.js"></script>
   </head>
+
   <body>
-    <main>
-      <header class="header">
+    <div class="">
+      <header>
         <h1>GitHub Viewer</h1>
         <p>Discover GitHub profiles with stats, repos and more.</p>
       </header>
 
-      <div class="form-section">
-        <div class="input-group">
+      <main>
+        <div class="user-input">
           <input
+            id="input"
             name="username"
             type="text"
-            placeholder="Enter GitHub username..."
+            placeholder="Type Username..."
             autocomplete="off"
             spellcheck="false"
           />
         </div>
-        <button class="find-btn">
-          <span class="btn-text">View Profile</span>
-          <span class="loading" style="display: none"></span>
-        </button>
-      </div>
 
-      <div class="info-section">
-        <div class="data-list hide"></div>
-      </div>
-    </main>
+        <button id="submit-btn">View Profile</button>
+
+        <article class="profile">
+          <div id="stats" class="hide"></div>
+        </article>
+      </main>
+    </div>
   </body>
 </html>
