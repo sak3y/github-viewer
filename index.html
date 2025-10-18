@@ -6,7 +6,7 @@
     <meta name="description" content="Discover GitHub profiles with stats, repos and more." />
     <meta name="author" content="sak3y" />
     <meta name="keywords" content="GitHub, API, User, Profile, Search" />
-    <title>GitHub Profile Viewer</title>
+    <title>GitHub Viewer</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
@@ -18,27 +18,24 @@
   <body>
     <div class="container">
       <h1>GitHub Viewer</h1>
-      <p>Discover GitHub profiles with stats, repos and more.</p>
+      <p class="desc">Discover GitHub profiles with stats, repos and more.</p>
 
-      <div class="user-input">
+      <div class="user-content">
         <input
           id="input"
           name="username"
           type="text"
           placeholder="Type Username..."
-          autocomplete="off"
           spellcheck="false"
           autofocus
         />
+        <button id="submit-btn">View</button>
       </div>
 
-      <button id="submit-btn">View Profile</button>
+      <p id="error"></p>
 
-      <!-- User Stats -->
-      <article id="stats" class="profile hide">
-      </article>
-
-      <div id="error"></div>
+      <!-- User's Stats -->
+      <article id="profile"></article>
     </div>
   </body>
 </html>
