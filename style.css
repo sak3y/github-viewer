@@ -5,15 +5,12 @@
   box-sizing: border-box;
 }
 
-html {
-  background: linear-gradient(135deg, #2c2c40, #2f2f45, #3a3a55);
-}
-
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  background: linear-gradient(135deg, #2c2c40, #2f2f45, #3a3a55);
   color: #e1e1e6;
 }
 
@@ -192,7 +189,7 @@ img:hover {
     margin: 3rem auto;
   }
   #profile-header {
-    flex-direction: row-reverse;
+    flex-direction: row;
   }
   #profile-stats {
     flex-direction: row;
