@@ -122,8 +122,9 @@ img:hover {
 /* Profile header */
 #profile-header {
   display: flex;
-  flex-direction: row-reverse;
-  gap: 0.6rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
 #profile-header img {
@@ -191,7 +192,7 @@ img:hover {
     margin: 3rem auto;
   }
   #profile-header {
-    gap: 1rem;
+    flex-direction: row-reverse;
   }
   #profile-stats {
     flex-direction: row;
