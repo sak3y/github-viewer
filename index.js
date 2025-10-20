@@ -1,41 +1,58 @@
 const input = document.getElementById("input");
-const submit = document.getElementById("submit-btn");
+const submit = document.getElementById("submit-btn"); // btn
+
 const profile = document.getElementById("profile");
+const profile_header = document.getElementById("profile-header");
+const profile_aside = document.getElementById("profile-aside");
+const profile_stats = document.getElementById("profile-stats");
+const profile_details = document.getElementById("profile-details");
+
 const error = document.getElementById("error");
 
 let text = ""; // input value
 
-const createDetail = (type, content, url) => {
-  if (!content) return;
+const createElement = (type, parent, content = "Not Specified", options = {}) => {
   const element = document.createElement(type);
-  element.textContent = content || null;
-  if (url) {
-    if (type === "img") {
-      element.src = url;
-      element.alt = content;
-    } else if (type === "a") {
-      element.href = url;
-      element.id = "html_url";
-    }
+  element.textContent = content;
+
+  if (type === "img") {
+    element.src = options.src || "";
+    element.alt = content;
   }
 
-  profile.appendChild(element);
+  if (type === "a") {
+    element.href = options.href || "#";
+    element.id = options.id || "";
+  }
+
+  parent.appendChild(element);
+  return element;
 };
 
-const createProfile = (details, avatar_url, html_url) => {
-  createDetail("img", "avatar", avatar_url); // avatar
-
-  details.forEach((detail) => createDetail("p", detail)); // name, bio, etc
-
-  createDetail("a", "Visit Profile", html_url); // url link
+const createAvatar = (parent, html_url, avatar_url) => {
+  const link = createElement("a", parent, "", { href: html_url });
+  createElement("img", link, "avatar", { src: avatar_url || "/placeholder.png" });
 };
 
+// Create elements from list
+const createDetails = (parent, array) => {
+  Object.entries(array).forEach(([key, value]) => {
+    if (!value) value = "Not specified";
+    createElement("p", parent, `${key}: ${value}`);
+  });
+};
+
+// Instantiate  profile
+const createProfile = (header, stats, details, html_url, avatar_url) => {
+  createAvatar(profile_header, html_url, avatar_url);
+  createDetails(profile_aside, header);
+  createDetails(profile_stats, stats);
+  createDetails(profile_details, details);
+};
+
+// Fetch user and display profile
 const handleSubmit = async () => {
-  // Handle empty case
-  if (!input.value) {
-    error.innerText = "Enter a username";
-    return;
-  }
+  if ((profile.style.display = "none")) profile.style.display = "flex"; // Show profile
 
   error.innerText = ""; // Reset error state
   submit.disabled = true;
@@ -48,14 +65,44 @@ const handleSubmit = async () => {
       error.innerText = "User doesn't exist";
       return;
     }
-    const { avatar_url, name, login, location, bio, followers, following, public_repos, html_url } =
-      await res.json();
+    const {
+      avatar_url,
+      id,
+      name,
+      login,
+      company,
+      location,
+      bio,
+      blog,
+      followers,
+      following,
+      public_repos,
+      last_updated,
+      html_url,
+    } = await res.json();
 
-    const details = [name, login, location, bio, followers, following, public_repos]; // Attributes list
+    const header = {
+      Name: name,
+      User: login,
+      Bio: bio,
+    };
 
-    if (profile.children.length > 0) profile.innerHTML = ""; // Clear old profile before displaying new profile
+    const stats = {
+      Followers: followers,
+      Following: following,
+      Repositories: public_repos,
+    };
 
-    createProfile(details, avatar_url, html_url);
+    const details = {
+      "ID": id,
+      "Location": location,
+      "Company": company,
+      "Blog": blog,
+      "Last Updated": last_updated,
+    };
+
+    createProfile(header, stats, details, html_url, avatar_url);
+
   } catch (err) {
     throw Error(err);
   } finally {
