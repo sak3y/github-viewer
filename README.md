@@ -20,3 +20,5 @@ GitHub only allows 60 requests per hour per IP.
 If you see `"Rate limit exceeded"` in the console, then you need to wait an hour.
 
 ## Demo 🎥
+
+https://github.com/user-attachments/assets/2c2b480b-d6e4-4b7c-8fdb-6132db32c781
