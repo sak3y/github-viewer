@@ -12,7 +12,7 @@ const error = document.getElementById("error");
 let text = ""; // input value
 
 // Utitliy function to create a component
-const createElement = (type, parent, content = "Not Specified", options = {}) => {
+const createElement = (type, parent, content = "Unspecified", options = {}) => {
   const el = document.createElement(type);
 
   if (type === "img") {
@@ -38,7 +38,7 @@ const createAvatar = (parent, html_url, avatar_url) => {
 // Create details section
 const createDetails = (parent, item) => {
   Object.entries(item).forEach(([key, value]) => {
-    createElement("p", parent, `${key}: ${value || "Not specified"}`);
+    createElement("p", parent, `${key}: ${value || "Unspecified"}`);
   });
 };
 
@@ -109,7 +109,7 @@ const handleSubmit = async () => {
       "Location": location,
       "Company": company,
       "Blog": blog,
-      "Last Updated": updated_at,
+      "Last Updated": updated_at ? new Date(updated_at).toLocaleString() : "Unspecified",
     };
 
     createProfile(header, stats, details, html_url, avatar_url);

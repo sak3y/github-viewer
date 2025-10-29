@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+html {
+  background-color: #1f1f2b;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -14,12 +18,13 @@ body {
   color: #e1e1e6;
 }
 
+/* Big container around elements */
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  padding: 1.5rem;
+  padding: 1.2rem;
   margin: 2rem;
   background: radial-gradient(circle at top left, #1f1f2b, #2c2c42);
   border-radius: 16px;
@@ -32,9 +37,11 @@ h1 {
   color: #b2a5ff;
 }
 
+/* Description */
 .desc {
   font-size: 0.9rem;
   color: #b0b3c6;
+  text-align: center;
 }
 
 .user-content {
@@ -160,6 +167,7 @@ img:hover {
   margin: 0;
   font-size: 0.9rem;
   color: #f1f1f1;
+  text-align: left;
 }
 
 #profile-details {
@@ -181,6 +189,9 @@ img:hover {
   .container {
     padding: 2rem;
   }
+  .desc {
+    text-align: left;
+  }
   input {
     width: 300px;
   }
@@ -193,5 +204,8 @@ img:hover {
   }
   #profile-stats {
     flex-direction: row;
+  }
+  #profile-stats p {
+    text-align: center;
   }
 }
